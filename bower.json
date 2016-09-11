@@ -1,0 +1,16 @@
+{
+	"name"         : "angular-react-test",
+	"description"  : "",
+	"version"      : "0.0.1",
+	"License"      : "BSD",
+	"private"      : true,
+	"dependencies" : {
+		"angular"          : "~1.5.8",
+		"angular-animate"  : "~1.5.8",
+		"angular-mocks"    : "~1.5.8",
+		"angular-resource" : "~1.5.8",
+		"angular-route"    : "~1.5.8",
+		"bootstrap"        : "~3.3.7",
+		"jquery"           : "~3.1.0"
+	}
+}
