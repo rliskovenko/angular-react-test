@@ -4,14 +4,35 @@
 	"version"         : "0.0.1",
 	"description"     : "Testing AngularJS with ReactJS",
 	"license"         : "BSD",
+	"main"            : "./app/server.js",
 	"devDependencies" : {
 		"bower"       : "~1.7.9",
 		"http-server" : "~0.9.0",
 		"karma"       : "~1.3.0"
 	},
+	"dependencies"    : {
+		"bluebird"        : "~3.4.6",
+		"body-parser"     : "~1.15.2",
+		"express"         : "~4.14.0",
+		"lodash"          : "~4.15.0",
+		"morgan"          : "~1.7.0",
+		"method-override" : "~2.3.6",
+		"redis"           : "~2.6.2",
+		"uuid"            : "~2.0.2"
+	},
 	"scripts"         : {
-		"postinstall" : "./node_modules/.bin/bower -q --no-color install",
-		"start"       : "./node_modules/.bin/http-server ./app -a localhost -p 8000 -c-1",
+		"postinstall" : "./node_modules/.bin/bower -q --no-color --allow-root install",
 		"test"        : "./node_modules/.bin/karma start karma.conf.js --single-run"
+	},
+	"eslintConfig"    : {
+		"env" : {
+			"shared-node-browser" : true,
+			"jquery"              : true,
+			"mongo"               : true,
+			"es6"                 : true
+		}
+	},
+	"disabledScripts" : {
+		"start" : "./node_modules/.bin/http-server ./app -a localhost -p 8000 -c-1"
 	}
 }

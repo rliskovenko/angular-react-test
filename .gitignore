@@ -40,5 +40,5 @@ jspm_packages
 .idea
 *.iml
 
-# Bower
-app/bower_components
+# Bower components
+public/bower_components
