@@ -1,18 +1,7 @@
-var exec_queue = angular.module( "execQueue", [] );
+var masterApp = angular.module( "masterApp", [] );
 
-function mainController( $scope, $http ) {
-	"use strict";
 
-	$scope.formData = {};
-
-	$http.get( "/exec_queue" )
-		.success( function ( data ) {
-			$scope.exec_queue = data;
-			console.dir( data );
-		} )
-		.error( function ( data ) {
-			console.log( "Error getting execution list:" + data );
-		} );
+masterApp.controller( "MasterAppController", function ( $scope, $http ) {
 
 	$scope.addExec = function () {
 		$http.post( "/exec_queue/", $scope.formData )
@@ -25,4 +14,4 @@ function mainController( $scope, $http ) {
 				console.log( "Error submitting execution task:" + data );
 			} )
 	}
-}
+} );

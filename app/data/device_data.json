@@ -1,0 +1,22 @@
+{
+	"window"          : {
+		"icon"    : "/icons/window.svg",
+		"actions" : {
+			"open"  : { "icon" : "/icons/open.svg" },
+			"close" : { "icon" : "/icons/close.svg" }
+		}
+	},
+	"climate_control" : {
+		"icon"    : "/icons/thermometer.svg",
+		"actions" : {
+			"temperature_up"   : { "icon" : "/icons/plus.svg" },
+			"temperature_down" : { "icon" : "/icons/minus.svg" }
+		}
+	},
+	"tv"              : {
+		"icon" : "/icons/tv.svg"
+	},
+	"computer"        : {
+		"icon" : "/icons/computer.svg"
+	}
+}

@@ -1,14 +1,20 @@
-var os             = require( "os" ),
-    _              = require( "lodash" ),
-    express        = require( "express" ),
-    redis          = require( "redis" ),
-    morgan         = require( "morgan" ),
-    bodyParser     = require( "body-parser" ),
-    methodOverride = require( "method-override" ),
-    Redisrm        = require( "./redisrm" ),
-    redisClient    = redis.createClient( { "host" : "redis" } ),
-    redisrm        = new Redisrm(),
-    app            = express();
+var os              = require( "os" ),
+    fs              = require( "fs" ),
+    _               = require( "lodash" ),
+    express         = require( "express" ),
+    morgan          = require( "morgan" ),
+    bodyParser      = require( "body-parser" ),
+    methodOverride  = require( "method-override" ),
+    Redisrm         = require( "./redisrm" ),
+    routerData      = require( "./routers/data" ),
+    routerExecQueue = require( "./routers/exec_queue" ),
+    redisrm         = new Redisrm( {
+	    "host"           : "redis",
+	    "retry_strategy" : function ( options ) {
+		    return 120 * 1000 * 1000;
+	    }
+    }, "angular_test" ),
+    app             = express();
 
 function _init() {
 	"use strict";
@@ -28,9 +34,6 @@ function _init() {
 			.value()
 	} );
 
-	// Connect ORM with store
-	redisrm.init( redisClient, "exec_queue" );
-
 	// Configure
 	app.use( express.static( __dirname + "/../public" ) );
 	app.use( morgan( "dev" ) );
@@ -43,17 +46,8 @@ function _init() {
 function set_routes() {
 	"use strict";
 
-	app.get( "/exec_queue/:queue_id", function ( req, res ) {
-		res.json( redisrm.queue.get( req.params.queue_id ) );
-	} );
-
-	app.get( "/exec_queue/", function ( req, res ) {
-		res.json( redisrm.queue.get() );
-	} );
-
-	app.post( "/exec_queue/", function ( req, res ) {
-		res.json( redisrm.queue.add( req.params ) );
-	} );
+	app.use( "/data", routerData );
+	app.use( "/exec_queue", routerExecQueue );
 
 	app.get( "*", function ( req, res ) {
 		res.sendfile( "../public/index.html" );
@@ -67,7 +61,7 @@ function listen() {
 	app.listen( 8000 );
 	console.log( "Started and listening" );
 }
-redisClient.on( "error", console.dir );
+
 _init();
 set_routes();
 listen();

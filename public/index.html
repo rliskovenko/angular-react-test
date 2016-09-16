@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="execQueue">
+<html lang="en" ng-app="masterApp">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,13 +17,22 @@
 
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/lodash/dist/lodash.js"></script>
 	<script src="core.js"></script>
+	<script src="components/exec_queue.component.js"></script>
+	<script src="components/action_navigation.component.js"></script>
 
 </head>
-<body <!--ng-controller="mainController"!--> >
+<body ng-controller="MasterAppController">
 
 <div class="container">
 	<div class="jumbotron text-center">Nothing here! {{'Move alone, ' + 'citizen!'}}</div>
+	<div id="action_navigation">
+		<action_navigation></action_navigation>
+	</div>
+	<div id="exec_queue">
+		<exec_queue></exec_queue>
+	</div>
 </div>
 
 </body>

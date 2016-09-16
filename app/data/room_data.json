@@ -1,0 +1,27 @@
+{
+	"kitchen" : {
+		"icon"   : "/icons/food.svg",
+		"name"   : "Kitchen",
+		"device" : [ "window" ]
+	},
+	"room1"   : {
+		"icon"   : "/icons/table.svg",
+		"name"   : "Living Room",
+		"device" : [ "window", "climate_control" ]
+	},
+	"room2"   : {
+		"icon" : "/icons/sofa.svg",
+		"name" : "Bedroom",
+		"device" : [ "window", "climate_control" ]
+	},
+	"toilet"  : {
+		"icon"   : "/icons/toilet-paper.svg",
+		"name"   : "Toilet",
+		"device" : [ "window" ]
+	},
+	"bath"    : {
+		"icon"   : "/icons/shower.svg",
+		"name"   : "Bath1",
+		"device" : [ "window" ]
+	}
+}
