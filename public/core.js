@@ -1,7 +1,7 @@
-var masterApp = angular.module( "masterApp", [] );
+var masterApp = angular.module( "masterApp", [ "ngMaterial" ] );
 
 
-masterApp.controller( "MasterAppController", function ( $scope, $http ) {
+masterApp.controller( "masterAppController", function ( $scope, $http ) {
 
 	$scope.addExec = function () {
 		$http.post( "/exec_queue/", $scope.formData )

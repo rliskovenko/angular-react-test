@@ -14,19 +14,29 @@
 
 		#todo-list { margin-bottom : 30px; }
 	</style>
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+	<link rel="stylesheet" href="core.css" />
 
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-material/angular-material.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/lodash/dist/lodash.js"></script>
 	<script src="core.js"></script>
 	<script src="components/exec_queue.component.js"></script>
 	<script src="components/action_navigation.component.js"></script>
+	<script src="components/settings_pane.component.js"></script>
 
 </head>
-<body ng-controller="MasterAppController">
+<body ng-controller="masterAppController" class="masterApp">
 
 <div class="container">
 	<div class="jumbotron text-center">Nothing here! {{'Move alone, ' + 'citizen!'}}</div>
+	<div id="settings_pane" class="settings-button inset" layout="row" layout-sm="column" layout-align="right">
+		<settings_pane></settings_pane>
+	</div>
 	<div id="action_navigation">
 		<action_navigation></action_navigation>
 	</div>
